@@ -22,6 +22,7 @@ public class Level1 {
                     num[i] = num[i] + num[j];
 
                     num[j] = -1;
+                    str[j] = "";
                 }
             }
         }
@@ -44,28 +45,19 @@ public class Level1 {
                     str[i] = str[j];
                     str[j] = st;
                 }
-            }
-        }
 
-        for (int i = 0; i < fin.length; i++) {
-            fin[i] = str[i] + " " + num[i];
-        }
-
-        for (int i = 0; i < fin.length; i++) {
-            for (int j = i + 1; j < fin.length; j++) {
-                if (num[i] == num[j] && fin[i].compareTo(fin[j]) > 0) {
-                    String t = fin[i];
-                    fin[i] = fin[j];
-                    fin[j] = t;
+                if (num[i] == num[j] && str[i].compareTo(str[j]) > 0) {
+                    String t = str[i];
+                    str[i] = str[j];
+                    str[j] = t;
                 }
+            }
+
+            if (i < fin.length) {
+                fin[i] = str[i] + " " + num[i];
             }
         }
 
         return fin;
-    }
-
-    public static void main(String[] args) {
-        String[] str = {"платье1 5", "сумка32 2", "платье1 1", "сумка23 2", "сумка128 4"};
-        ShopOLAP(5, str);
     }
 }
