@@ -12,6 +12,7 @@ public class Level1 {
             num[i] = Integer.parseInt(t);
         }
 
+        int count = 0;
         for (int i = 0; i < n; i++) {
             if (num[i] == -1) continue;
 
@@ -25,11 +26,8 @@ public class Level1 {
                     str[j] = "";
                 }
             }
-        }
 
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            if (num[i] != -1) count++;
+            count++;
         }
 
         String[] fin = new String[count];
@@ -47,9 +45,9 @@ public class Level1 {
                 }
 
                 if (num[i] == num[j] && str[i].compareTo(str[j]) > 0) {
-                    String t = str[i];
+                    String st = str[i];
                     str[i] = str[j];
-                    str[j] = t;
+                    str[j] = st;
                 }
             }
 
