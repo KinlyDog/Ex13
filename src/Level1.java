@@ -17,8 +17,6 @@ public class Level1 {
             if (num[i] == -1) continue;
 
             for (int j = i + 1; j < n; j++) {
-                if (num[j] == -1) continue;
-
                 if (str[i].equals(str[j])) {
                     num[i] = num[i] + num[j];
 
@@ -57,5 +55,10 @@ public class Level1 {
         }
 
         return fin;
+    }
+
+    public static void main(String[] args) {
+        String[] str = {"платье1 5", "сумка32 2", "платье1 1", "сумка23 2", "сумка128 4", "сумка33 2", "сумка32 3"};
+        ShopOLAP(7, str);
     }
 }
