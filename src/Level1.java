@@ -56,9 +56,4 @@ public class Level1 {
 
         return fin;
     }
-
-    public static void main(String[] args) {
-        String[] str = {"платье1 5", "сумка32 2", "платье1 1", "сумка23 2", "сумка128 4", "сумка33 2", "сумка32 3"};
-        ShopOLAP(7, str);
-    }
 }
