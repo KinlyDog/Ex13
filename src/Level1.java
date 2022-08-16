@@ -1,5 +1,3 @@
-import java.nio.file.Path;
-
 public class Level1 {
     public static String[] ShopOLAP(int n, String[] items) {
         String[] str = new String[n];
@@ -34,8 +32,6 @@ public class Level1 {
         }
 
         String[] fin = new String[count];
-
-        boolean flag = true;
 
         for (int i = 0; i < str.length; i++) {
             for (int j = i + 1; j < str.length; j++) {
