@@ -28,7 +28,7 @@ public class Level1 {
             count++;
         }
 
-        String[] fin = new String[count];
+        String[] topSellingItems = new String[count];
 
         for (int i = 0; i < str.length; i++) {
             for (int j = i + 1; j < str.length; j++) {
@@ -49,11 +49,11 @@ public class Level1 {
                 }
             }
 
-            if (i < fin.length) {
-                fin[i] = str[i] + " " + num[i];
+            if (i < topSellingItems.length) {
+                topSellingItems[i] = str[i] + " " + num[i];
             }
         }
 
-        return fin;
+        return topSellingItems;
     }
 }
