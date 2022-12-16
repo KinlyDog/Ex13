@@ -8,7 +8,7 @@ public class Level1 {
 
             str[i] = items[i].substring(0, ind);
 
-            String t = items[i].substring(ind + 1, items[i].length());
+            String t = items[i].substring(ind + 1);
             num[i] = Integer.parseInt(t);
         }
 
