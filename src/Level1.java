@@ -29,6 +29,7 @@ public class Level1 {
         }
 
         String[] topSellingItems = new String[count];
+        count = 0;
 
         for (int i = 0; i < str.length; i++) {
             for (int j = i + 1; j < str.length; j++) {
@@ -53,6 +54,8 @@ public class Level1 {
                 topSellingItems[i] = str[i] + " " + num[i];
             }
         }
+
+        str = null;
 
         return topSellingItems;
     }
