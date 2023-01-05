@@ -1,29 +1,29 @@
-import java.util.ArrayList;
-
 public class Level1 {
     public static String[] ShopOLAP(int n, String[] items) {
-        String[] str = new String[n];
-        int[] num = new int[n];
+        String[] product = new String[n];
+        int[] number = new int[n];
 
+        // разделяем строку на название товара + количество
         for (int i = 0; i < n; i++) {
             int ind = items[i].indexOf(" ");
 
-            str[i] = items[i].substring(0, ind);
+            product[i] = items[i].substring(0, ind);
 
-            String t = items[i].substring(ind + 1);
-            num[i] = Integer.parseInt(t);
+            String s = items[i].substring(ind + 1);
+            number[i] = Integer.parseInt(s);
         }
 
+        // находим одинаковые товары и суммируем их количество
         int count = 0;
         for (int i = 0; i < n; i++) {
-            if (num[i] == -1) continue;
+            if (number[i] == -1) continue;
 
             for (int j = i + 1; j < n; j++) {
-                if (str[i].equals(str[j])) {
-                    num[i] = num[i] + num[j];
+                if (product[i].equals(product[j])) {
+                    number[i] = number[i] + number[j];
 
-                    num[j] = -1;
-                    str[j] = "";
+                    number[j] = -1;
+                    product[j] = "";
                 }
             }
 
@@ -32,27 +32,30 @@ public class Level1 {
 
         String[] topSellingItems = new String[count];
 
-        for (int i = 0; i < str.length; i++) {
-            for (int j = i + 1; j < str.length; j++) {
-                if (num[i] < num[j]) {
-                    int x = num[i];
-                    num[i] = num[j];
-                    num[j] = x;
+        // сортируем товары по количеству по убыванию,
+        // если количество товаров одинаковое,
+        // сортируем по названию в порядке лексикографического возрастания
+        for (int i = 0; i < product.length; i++) {
+            for (int j = i + 1; j < product.length; j++) {
+                if (number[i] < number[j]) {
+                    int x = number[i];
+                    number[i] = number[j];
+                    number[j] = x;
 
-                    String st = str[i];
-                    str[i] = str[j];
-                    str[j] = st;
+                    String st = product[i];
+                    product[i] = product[j];
+                    product[j] = st;
                 }
 
-                if (num[i] == num[j] && str[i].compareTo(str[j]) > 0) {
-                    String st = str[i];
-                    str[i] = str[j];
-                    str[j] = st;
+                if (number[i] == number[j] && product[i].compareTo(product[j]) > 0) {
+                    String st = product[i];
+                    product[i] = product[j];
+                    product[j] = st;
                 }
             }
 
             if (i < topSellingItems.length) {
-                topSellingItems[i] = str[i] + " " + num[i];
+                topSellingItems[i] = product[i] + " " + number[i];
             }
         }
 
